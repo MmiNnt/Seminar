@@ -55,7 +55,7 @@ class _AuthenState extends State<Authen> {
 
   ShowTitle buildShowTitle() {
     return ShowTitle(
-      title: 'Ung BigC',
+      title: 'ชื่อเเอป',
       textStyle: MyStyle().h1Style(),
     );
   }

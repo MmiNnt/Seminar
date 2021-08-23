@@ -15,14 +15,16 @@ import 'package:ungbigc/widgets/show_title.dart';
 
 class ServiceUser extends StatefulWidget {
   @override
+  _ServiceUserState createState() => _ServiceUserState();
+}
 
 class _ServiceUserState extends State<ServiceUser> {
   List<Widget> widgets = [];
-  List<String> pathImages = [
-    'images/banner1.png',
-    'images/banner2.png',
-    'images/banner3.png',
-  ];
+ // List<String> pathImages = [
+  //  'images/banner1.png',
+  //  'images/banner2.png',
+  //  'images/banner3.png',
+  //];
 
   List<ProductModel> productModels = [];
 
@@ -31,24 +33,25 @@ class _ServiceUserState extends State<ServiceUser> {
     // TODO: implement initState
     super.initState();
 
-    buildWidgets();
-    readData();
+   // buildWidgets();
+   // readData();
   }
 
-  Future<Null> readData() async {
-    String api = 'https://www.androidthai.in.th/bigc/getAllFood.php';
-    await Dio().get(api).then((value) {
-      print('### value = $value');
-      for (var item in json.decode(value.data)) {
-        ProductModel model = ProductModel.fromMap(item);
-        setState(() {
-          productModels.add(model);
-        });
-      }
-    });
-  }
+  //Future<Null> readData() async {
+  //  String api = 'https://www.androidthai.in.th/bigc/getAllFood.php';
+  //  await Dio().get(api).then((value) {
+   //   print('### value = $value');
+   //   for (var item in json.decode(value.data)) {
+    //    ProductModel model = ProductModel.fromMap(item);
+    //    setState(() {
+    //      productModels.add(model);
+     //   });
+     // }
+   // });
+ // }
 
   void buildWidgets() {
+    var pathImages;
     for (var item in pathImages) {
       widgets.add(Image.asset(item));
     }

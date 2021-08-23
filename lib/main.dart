@@ -5,6 +5,7 @@ import 'package:ungbigc/states/create_account.dart';
 import 'package:ungbigc/states/service_admin.dart';
 import 'package:ungbigc/states/service_user.dart';
 import 'package:ungbigc/states/show_cart.dart';
+import 'dart:ui' as ui;
 
 final Map<String, WidgetBuilder> map = {
   '/authen': (BuildContext context) => Authen(),
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: map,
       initialRoute: initialRoute,
-      title: 'Ung BigC',
+      title: 'รายรับ รายจ่าย',
     );
   }
 }
