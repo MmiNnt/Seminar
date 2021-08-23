@@ -15,8 +15,6 @@ import 'package:ungbigc/widgets/show_title.dart';
 
 class ServiceUser extends StatefulWidget {
   @override
-  _ServiceUserState createState() => _ServiceUserState();
-}
 
 class _ServiceUserState extends State<ServiceUser> {
   List<Widget> widgets = [];
