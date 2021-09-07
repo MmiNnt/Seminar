@@ -15,7 +15,7 @@ class _HomeTwoState extends State<HomeTwo>{
      return Scaffold(
        appBar: AppBar(title: Text('Expense'),),
      );
-     var color;
+    // var color;
      var pink;
      return Column(
        crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,11 +33,12 @@ class _HomeTwoState extends State<HomeTwo>{
 
 
 
-
+//RaisedButton
 Widget incButton() => Container(
   width: 150.0,
-     child:RaisedButton(
-          color: Colors.pink[100],
+     child:ElevatedButton(
+       
+          //color: Colors.pink[100],
          onPressed:() {},
          child: Text(
       'Expense'
