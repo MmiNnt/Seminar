@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+//import 'package:geolocator/geolocator.dart';
+////import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ungbigc/utility/my_constant.dart';
 import 'package:ungbigc/utility/my_dialog.dart';
 import 'package:ungbigc/utility/my_style.dart';
@@ -25,26 +25,26 @@ class _CreateAccountState extends State<CreateAccount> {
   @override
   void initState() {
     super.initState();
-    findLatLan();
+    //findLatLan();
   }
 
-  Future<Null> findLatLan() async {
-    Position? position = await findPosition();
-    setState(() {
-      lat = position!.latitude;
-      lng = position.longitude;
-      load = false;
-    });
-    print('lat = $lat, lng = $lng, load = $load');
-  }
+ // Future<Null> findLatLan() async {
+   // Position? position = await findPosition();
+   // setState(() {
+   //   lat = position!.latitude;
+   //   lng = position.longitude;
+   //   load = false;
+   // });
+   // print('lat = $lat, lng = $lng, load = $load');
+  //}
 
-  Future<Position?> findPosition() async {
-    try {
-      return await Geolocator.getCurrentPosition();
-    } catch (e) {
-      return null;
-    }
-  }
+  //Future<Position?> findPosition() async {
+  //  try {
+    //  return await Geolocator.getCurrentPosition();
+   // } catch (e) {
+   //   return null;
+  //  }
+  //}
 
   Container buildName(double size) {
     return Container(
@@ -176,7 +176,7 @@ class _CreateAccountState extends State<CreateAccount> {
               buildName(size),
               buildUser(size),
               buildPassword(size),
-              buildMap(size),
+            //  buildMap(size),
               buildCreateAccount(size),
             ],
           ),
@@ -210,7 +210,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Future<Null> insertNewUser(
       {String? name, String? user, String? password}) async {
     String apiCheckUser =
-        'https://www.androidthai.in.th/bigc/getUserWhereUser.php?isAdd=true&user=$user';
+        'https://www.androidthai.in.th/mmintpui/getUserWhereUser.php?isAdd=true&user=$user';
     await Dio().get(apiCheckUser).then(
       (value) async {
         print('## value = $value');
@@ -218,7 +218,7 @@ class _CreateAccountState extends State<CreateAccount> {
           normalDialog(context, 'User Dulicape', 'Please Change User');
         } else {
           String apiInsertUser =
-              'https://www.androidthai.in.th/bigc/insertUser.php?isAdd=true&name=$name&user=$user&password=$password&lat=$lat&lng=$lng';
+              'https://www.androidthai.in.th/mmintpui/insertUser.php?isAdd=true&name=$name&user=$user&password=$password&lat=$lat&lng=$lng';
           await Dio().get(apiInsertUser).then((value) {
             if (value.toString() == 'true') {
               Navigator.pop(context);
@@ -231,30 +231,30 @@ class _CreateAccountState extends State<CreateAccount> {
     );
   }
 
-  Set<Marker> setMarkers() {
-    return [
-      Marker(
-        markerId: MarkerId('id'),
-        position: LatLng(lat!, lng!),
-        infoWindow: InfoWindow(
-            title: 'You Here !!!', snippet: 'Lat = $lat, lng = $lng'),
-      ),
-    ].toSet();
-  }
+  //Set<Marker> setMarkers() {
+  //  return [
+   //   Marker(
+    //    markerId: MarkerId('id'),
+    //    position: LatLng(lat!, lng!),
+    //    infoWindow: InfoWindow(
+      //      title: 'You Here !!!', snippet: 'Lat = $lat, lng = $lng'),
+    //  ),
+   // ].toSet();
+ // }
 
-  Container buildMap(double size) {
-    return Container(
-      height: 200,
-      margin: EdgeInsets.symmetric(vertical: 16),
-      width: size * 0.8,
-      child: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: LatLng(lat!, lng!),
-          zoom: 16,
-        ),
-        onMapCreated: (controller) {},
-        markers: setMarkers(),
-      ),
-    );
-  }
+  //Container buildMap(double size) {
+   // return Container(
+   //   height: 200,
+    //  margin: EdgeInsets.symmetric(vertical: 16),
+    //  width: size * 0.8,
+   //   child: GoogleMap(
+    //    initialCameraPosition: CameraPosition(
+     //     target: LatLng(lat!, lng!),
+     //     zoom: 16,
+    //    ),
+    //    onMapCreated: (controller) {},
+     //   markers: setMarkers(),
+     // ),
+   // );
+ // }
 }

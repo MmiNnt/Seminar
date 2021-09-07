@@ -3,4 +3,4 @@
     error_reporting(0);
     error_reporting(E_ERROR | E_PARSE);
     header("content-type:text/javascript;charset=utf-8");
-    $link = mysqli_connect('localhost', 'androidh_bigc', 'Abc12345', "androidh_bigc");
+    $link = mysqli_connect('localhost', 'aadminn', 'admin123', "mmintpui");
